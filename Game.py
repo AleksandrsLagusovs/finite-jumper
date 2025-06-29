@@ -24,7 +24,7 @@ class Game:
         
     
     def generate_tile(self, screen, x, y, x_velocity=0, max_displacement=0):
-        self.tiles.append(Tile(screen, x, y, x_velocity, max_displacement)))
+        self.tiles.append(Tile(screen, x, y, x_velocity, max_displacement))
 
     def generate_tiles(self, screen):
         self.generate_tile(screen, 600, 600)
