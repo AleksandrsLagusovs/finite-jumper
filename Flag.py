@@ -7,7 +7,7 @@ class Flag:
         self.y = y
         self.width = 25
         self.height = 40
-        self.image = pygame.image.load("assets\\flag.png")
+        self.image = pygame.image.load("assets/flag.png")
         self.captured = False
 
     def draw(self):

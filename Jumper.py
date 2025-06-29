@@ -5,8 +5,8 @@ class Jumper:
         self.screen = screen
         self.x = 400
         self.y = 500
-        self.width = pygame.image.load("assets\\down.png").get_width()
-        self.height = pygame.image.load("assets\\down.png").get_height()
+        self.width = pygame.image.load("assets/down.png").get_width()
+        self.height = pygame.image.load("assets/down.png").get_height()
         self.previous_height = self.y
         self.x_velocity = 0
         self.y_velocity = 1
@@ -19,9 +19,9 @@ class Jumper:
         self.moving_left = False
         self.last_direction = "right"
         self.bounce_velocity = -13  # Fixed bounce velocity
-        self.jumping = pygame.image.load("assets\\jumping.png")
-        self.up = pygame.image.load("assets\\up.png")
-        self.down = pygame.image.load("assets\\down.png")
+        self.jumping = pygame.image.load("assets/jumping.png")
+        self.up = pygame.image.load("assets/up.png")
+        self.down = pygame.image.load("assets/down.png")
         self.tile_touched = False
         self.dead = False
         self.angle = 0
@@ -79,7 +79,7 @@ class Jumper:
         self.angle += 10
         if self.angle >= 360:
             self.angle = 0
-        self.image = pygame.transform.rotate(pygame.image.load("assets\\down.png"), self.angle)
+        self.image = pygame.transform.rotate(pygame.image.load("assets/down.png"), self.angle)
 
     def update(self, screen, ground, tiles):
 

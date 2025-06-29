@@ -198,10 +198,10 @@ class Game:
 
             if not self.music_started:
                 self.music_started = True
-                music = "assets\\Long Away Home.wav"
+                music = "assets/Long Away Home.wav"
                 pygame.mixer.music.load(music)
                 pygame.mixer.music.play()
-                pygame.mixer.music.queue("assets\\leap.wav")
+                pygame.mixer.music.queue("assets/leap.wav")
 
     def update(self):
         if self.victory:
@@ -209,7 +209,7 @@ class Game:
             self.timer += 1
             if not self.victory_music_playing:
                 self.victory_music_playing = True
-                pygame.mixer.music.load("assets\\Victory.wav")
+                pygame.mixer.music.load("assets/Victory.wav")
                 pygame.mixer.music.play()
             if not pygame.mixer.music.get_busy():
                 pygame.quit()
