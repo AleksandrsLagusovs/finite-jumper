@@ -18,7 +18,7 @@ class Game:
         self.timer = 0
         self.music_started = False
         self.falling_sprites = []
-        self.flag = Flag(screen, 645, -13660)
+        self.flag = Flag(screen, 495, -13360)
         self.victory = False
         self.victory_music_playing = False
         
@@ -57,81 +57,80 @@ class Game:
         self.generate_tile(screen, 700, -2850, -2, 200)
         self.generate_tile(screen, 500, -3000)
         self.generate_tile(screen, 700, -3150, 2, 1280)
-        self.generate_tile(screen, 950, -3300)
-        self.generate_tile(screen, 1155, -3450)
+
+        self.generate_tile(screen, 1155, -3300)
         # Second phase
-        self.generate_tile(screen, 25, -3600)
-        self.generate_tile(screen, 200, -3750)
-        self.generate_tile(screen, 425, -3900)
-        self.generate_tile(screen, 650, -4050)
-        self.generate_tile(screen, 800, -4200, 2, 150)
-        self.generate_tile(screen, 700, -4350, -2, 200)
-        self.generate_tile(screen, 700, -4500, 3, 200) # 34
-        self.generate_tile(screen, 800, -4650, -2, 250)
-        self.generate_tile(screen, 800, -4800, 3, 150)
-        self.generate_tile(screen, 950, -4950)
-        self.generate_tile(screen, 1180, -5100)
-        self.generate_tile(screen, 0, -5250)
-        self.generate_tile(screen, 250, -5400) # 40
-        self.generate_tile(screen, 500, -5550)
-        # self.generate_tile(screen, 750, -5550)
-        self.generate_tile(screen, 700, -5700)
-        self.generate_tile(screen, 900, -5850, -2, 100)
-        self.generate_tile(screen, 800, -6000, 2, 200)
-        self.generate_tile(screen, 700, -6150)
-        self.generate_tile(screen, 850, -6300)
-        self.generate_tile(screen, 700, -6450)
-        self.generate_tile(screen, 850, -6600)
-        self.generate_tile(screen, 775, -6750)
-        self.generate_tile(screen, 525, -6900)
-        self.generate_tile(screen, 275, -7050)
-        self.generate_tile(screen, 400, -7200)
-        self.generate_tile(screen, 650, -7350)
-        self.generate_tile(screen, 900, -7500)
-        self.generate_tile(screen, 800, -7650, -2, 150)
-        self.generate_tile(screen, 800, -7800, 2, 150)
-        self.generate_tile(screen, 800, -7950)
-        self.generate_tile(screen, 1050, -8100)
-        self.generate_tile(screen, 900, -8250)
-        self.generate_tile(screen, 700, -8400)
-        self.generate_tile(screen, 500, -8550)
-        self.generate_tile(screen, 300, -8700)
-        self.generate_tile(screen, 100, -8850)
-        self.generate_tile(screen, 275, -9000)
-        self.generate_tile(screen, 450, -9150)
-        self.generate_tile(screen, 625, -9300)
-        self.generate_tile(screen, 900, -9450)
+        self.generate_tile(screen, 25, -3450)
+        self.generate_tile(screen, 200, -3600)
+        self.generate_tile(screen, 425, -3750)
+        self.generate_tile(screen, 650, -3900)
+        self.generate_tile(screen, 800, -4050, 2, 150)
+        self.generate_tile(screen, 700, -4200, -2, 200)
+        self.generate_tile(screen, 700, -4350, 3, 200) # 34
+        self.generate_tile(screen, 800, -4500, -2, 250)
+        self.generate_tile(screen, 800, -4650, 3, 150)
+        self.generate_tile(screen, 950, -4800)
+        self.generate_tile(screen, 1180, -4950)
+        self.generate_tile(screen, 0, -5100)
+        self.generate_tile(screen, 250, -5250) # 40
+        self.generate_tile(screen, 500, -5400)
+        # self.generate_tile(screen, 750, -5400)
+        self.generate_tile(screen, 700, -5550)
+        self.generate_tile(screen, 800, -5700, -2, 100)
+        self.generate_tile(screen, 800, -5850, 2, 200)
+        self.generate_tile(screen, 700, -6000)
+        self.generate_tile(screen, 850, -6150)
+        self.generate_tile(screen, 700, -6300)
+        self.generate_tile(screen, 850, -6450)
+        self.generate_tile(screen, 775, -6600)
+        self.generate_tile(screen, 525, -6750)
+        self.generate_tile(screen, 275, -6900)
+        self.generate_tile(screen, 400, -7050)
+        self.generate_tile(screen, 650, -7200)
+        self.generate_tile(screen, 900, -7350)
+        self.generate_tile(screen, 800, -7500, -2, 150)
+        self.generate_tile(screen, 800, -7650, 2, 150)
+        self.generate_tile(screen, 800, -7800)
+        self.generate_tile(screen, 1050, -7950)
+        self.generate_tile(screen, 900, -8100)
+        self.generate_tile(screen, 700, -8250)
+        self.generate_tile(screen, 500, -8400)
+        self.generate_tile(screen, 300, -8550)
+        self.generate_tile(screen, 100, -8700)
+        self.generate_tile(screen, 275, -8850)
+        self.generate_tile(screen, 450, -9000)
+        self.generate_tile(screen, 625, -9150)
         ### Invisible tiles ###
-        self.generate_tile(screen, 700, -9550) # 69
-        self.generate_tile(screen, 500, -9650)
-        self.generate_tile(screen, 300, -9750)
-        self.generate_tile(screen, 100, -9850)
+        self.generate_tile(screen, 900, -9300) # 67
+        self.generate_tile(screen, 700, -9400)
+        self.generate_tile(screen, 500, -9500)
+        self.generate_tile(screen, 300, -9600)
         ### Invisible tiles ###
-        self.generate_tile(screen, 200, -10000)
-        self.generate_tile(screen, 300, -10150)
-        self.generate_tile(screen, 100, -10300)
-        self.generate_tile(screen, 275, -10450, -2, 100)
-        self.generate_tile(screen, 450, -10600)
-        self.generate_tile(screen, 625, -10750)
-        self.generate_tile(screen, 900, -10900)
-        self.generate_tile(screen, 900, -11050, 3, 100)
-        self.generate_tile(screen, 700, -11200, -3, 100)
-        self.generate_tile(screen, 500, -11350, 3, 100)
-        self.generate_tile(screen, 300, -11500, -3, 100)
-        self.generate_tile(screen, 200, -11650)
-        self.generate_tile(screen, 200, -11800) # 85
+        self.generate_tile(screen, 100, -9700)
+        self.generate_tile(screen, 200, -9850)
+        self.generate_tile(screen, 300, -10000)
+        self.generate_tile(screen, 100, -10150)
+        self.generate_tile(screen, 275, -10300, -2, 100)
+        self.generate_tile(screen, 450, -10450)
+        self.generate_tile(screen, 625, -10600)
+        self.generate_tile(screen, 900, -10750)
+        self.generate_tile(screen, 900, -10900, 3, 100)
+        self.generate_tile(screen, 700, -11050, -3, 100)
+        self.generate_tile(screen, 500, -11200, 3, 100)
+        self.generate_tile(screen, 300, -11350, -3, 100)
+        self.generate_tile(screen, 200, -11500)
+        self.generate_tile(screen, 200, -11650) # 85
+        self.generate_tile(screen, 25, -11800)
         self.generate_tile(screen, 25, -11950)
-        self.generate_tile(screen, 25, -12100)
-        self.generate_tile(screen, 1155, -12250)
-        self.generate_tile(screen, 1000, -12400)
-        self.generate_tile(screen, 1155, -12550)
-        self.generate_tile(screen, 25, -12700)
-        self.generate_tile(screen, 175, -12850)
-        self.generate_tile(screen, 25, -13000)
-        self.generate_tile(screen, 175, -13150)
-        self.generate_tile(screen, 325, -13300)
-        self.generate_tile(screen, 475, -13450)
-        self.generate_tile(screen, 625, -13600)
+        self.generate_tile(screen, 1155, -12100)
+        self.generate_tile(screen, 1000, -12250)
+        self.generate_tile(screen, 1155, -12400)
+        self.generate_tile(screen, 25, -12550)
+        self.generate_tile(screen, 175, -12700)
+        self.generate_tile(screen, 25, -12850)
+        self.generate_tile(screen, 175, -13000)
+        self.generate_tile(screen, 325, -13150)
+        self.generate_tile(screen, 475, -13300)
 
 
     def draw_tile_trajectories(self):
@@ -147,17 +146,18 @@ class Game:
             self.jumper.draw(self.screen)
             self.ground.draw()
             for tile in self.tiles:
-                if tile.id == 68:
-                    if self.timer >= 6825:
+                if tile.id == 67:
+                    print(f"Audio is at: {pygame.mixer.music.get_pos()}")
+                    if self.scroll_amount == 2 and pygame.mixer.music.get_pos() >= 47900:
                         tile.draw()
-                elif tile.id ==69:
-                    if self.timer >= 6850:
+                elif tile.id == 68:
+                    if self.scroll_amount == 2 and pygame.mixer.music.get_pos() >= 47900+385:
+                        tile.draw()
+                elif tile.id == 69:
+                    if self.scroll_amount == 2 and pygame.mixer.music.get_pos() >= 47900+2*385:
                         tile.draw()
                 elif tile.id == 70:
-                    if self.timer >= 6875:
-                        tile.draw()
-                elif tile.id == 71:
-                    if self.timer >= 6900:
+                    if self.scroll_amount == 2 and pygame.mixer.music.get_pos() >= 47900+3*385:
                         tile.draw()
                 # elif tile.id == 73:
                 #     if self.timer >= 6710:
@@ -224,6 +224,7 @@ class Game:
             if self.scroll_start:
                 self.move_tiles()
             self.scroll()
+            # print(f"Jumper position: {self.jumper.x}, {self.jumper.y}")
             if self.scroll_start:
                 self.timer += 1
             # 1680 is where dinos start falling
@@ -247,7 +248,7 @@ class Game:
                 self.falling_sprites.append(FallingSprite(self.screen, 1080/2+200, -50))
             if self.timer == 8300:
                 self.falling_sprites.append(FallingSprite(self.screen, 1080/2-200, -50))
-            if self.timer >= 3870:
+            if pygame.mixer.music.get_pos() <= 50 and self.timer > 1000:
                 self.scroll_amount = 2
             if self.jumper.collide_with_flag(self.flag):
                 self.victory = True
