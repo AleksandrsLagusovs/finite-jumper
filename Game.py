@@ -24,11 +24,7 @@ class Game:
         
     
     def generate_tile(self, screen, x, y, x_velocity=0, max_displacement=0):
-        self.tiles.append(Tile(screen, x, y, x_velocity, max_displacement))
-        # if max_displacement:
-        #     self.tile_trajectories.append([x-max_displacement, y+5, 100+max_displacement*2, 1])
-        # else:
-        #     self.tile_trajectories.append(0)
+        self.tiles.append(Tile(screen, x, y, x_velocity, max_displacement)))
 
     def generate_tiles(self, screen):
         self.generate_tile(screen, 600, 600)
@@ -58,8 +54,8 @@ class Game:
         self.generate_tile(screen, 500, -3000)
         self.generate_tile(screen, 700, -3150, 2, 1280)
 
-        self.generate_tile(screen, 1155, -3300)
         # Second phase
+        self.generate_tile(screen, 1155, -3300)
         self.generate_tile(screen, 25, -3450)
         self.generate_tile(screen, 200, -3600)
         self.generate_tile(screen, 425, -3750)
@@ -72,9 +68,8 @@ class Game:
         self.generate_tile(screen, 950, -4800)
         self.generate_tile(screen, 1180, -4950)
         self.generate_tile(screen, 0, -5100)
-        self.generate_tile(screen, 250, -5250) # 40
+        self.generate_tile(screen, 250, -5250)
         self.generate_tile(screen, 500, -5400)
-        # self.generate_tile(screen, 750, -5400)
         self.generate_tile(screen, 700, -5550)
         self.generate_tile(screen, 800, -5700, -2, 100)
         self.generate_tile(screen, 800, -5850, 2, 200)
@@ -119,7 +114,7 @@ class Game:
         self.generate_tile(screen, 500, -11200, 3, 100)
         self.generate_tile(screen, 300, -11350, -3, 100)
         self.generate_tile(screen, 200, -11500)
-        self.generate_tile(screen, 200, -11650) # 85
+        self.generate_tile(screen, 200, -11650)
         self.generate_tile(screen, 25, -11800)
         self.generate_tile(screen, 25, -11950)
         self.generate_tile(screen, 1155, -12100)
@@ -132,7 +127,6 @@ class Game:
         self.generate_tile(screen, 325, -13150)
         self.generate_tile(screen, 475, -13300)
 
-
     def draw_tile_trajectories(self):
         for trajectory in self.tile_trajectories:
             if trajectory:
@@ -140,6 +134,7 @@ class Game:
 
     def draw(self, screen):
         screen.fill((0, 0, 0))
+        music_pos = pygame.mixer.music.get_pos()
         if self.victory:
             self.jumper.draw_victory(self.screen, self.timer)
         else:
@@ -147,21 +142,17 @@ class Game:
             self.ground.draw()
             for tile in self.tiles:
                 if tile.id == 67:
-                    print(f"Audio is at: {pygame.mixer.music.get_pos()}")
-                    if self.scroll_amount == 2 and pygame.mixer.music.get_pos() >= 47900:
+                    if self.scroll_amount == 2 and music_pos >= 47900:
                         tile.draw()
                 elif tile.id == 68:
-                    if self.scroll_amount == 2 and pygame.mixer.music.get_pos() >= 47900+385:
+                    if self.scroll_amount == 2 and music_pos >= 47900+385:
                         tile.draw()
                 elif tile.id == 69:
-                    if self.scroll_amount == 2 and pygame.mixer.music.get_pos() >= 47900+2*385:
+                    if self.scroll_amount == 2 and music_pos >= 47900+2*385:
                         tile.draw()
                 elif tile.id == 70:
-                    if self.scroll_amount == 2 and pygame.mixer.music.get_pos() >= 47900+3*385:
+                    if self.scroll_amount == 2 and music_pos >= 47900+3*385:
                         tile.draw()
-                # elif tile.id == 73:
-                #     if self.timer >= 6710:
-                #         tile.draw()
                 else:
                     tile.draw()
             self.draw_tile_trajectories()
@@ -224,10 +215,8 @@ class Game:
             if self.scroll_start:
                 self.move_tiles()
             self.scroll()
-            # print(f"Jumper position: {self.jumper.x}, {self.jumper.y}")
             if self.scroll_start:
                 self.timer += 1
-            # 1680 is where dinos start falling
             if self.timer == 1680:
                 self.falling_sprites.append(FallingSprite(self.screen, 900, -50))
             if self.timer == 2060:
@@ -253,8 +242,6 @@ class Game:
             if self.jumper.collide_with_flag(self.flag):
                 self.victory = True
                 print("Victory!")
-
-        # print(f"Timer: {self.timer}")
 
     def game_over(self):
         print("Game over!")
