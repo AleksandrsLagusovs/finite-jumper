@@ -15,14 +15,14 @@ def main():
         for event in pygame.event.get():
             if not game.victory:
                 if event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_LEFT:
+                    if event.key == pygame.K_LEFT or event.key == pygame.K_a:
                         game.jumper.moving_left = True
-                    if event.key == pygame.K_RIGHT:
+                    if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
                         game.jumper.moving_right = True
                 if event.type == pygame.KEYUP:
-                    if event.key == pygame.K_LEFT:
+                    if event.key == pygame.K_LEFT or event.key == pygame.K_a:
                         game.jumper.moving_left = False
-                    if event.key == pygame.K_RIGHT:
+                    if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
                         game.jumper.moving_right = False
             if event.type == pygame.QUIT:
                 pygame.quit()
