@@ -15,7 +15,7 @@ class Tile:
         self.color = (255, 255, 255)
         self.id = Tile.last_id  # Assign a unique ID
         Tile.last_id += 1  # Increment the last assigned ID
-        self.text_surface = self.pre_render_text()
+        # self.text_surface = self.pre_render_text()
 
     def pre_render_text(self):
         font = pygame.font.Font(None, 28)
@@ -24,7 +24,7 @@ class Tile:
 
     def draw(self):
         pygame.draw.rect(self.screen, self.color, (self.x, self.y, self.width, self.height), border_radius=10)
-        self.screen.blit(self.text_surface, (self.x-20, self.y-20))
+        # self.screen.blit(self.text_surface, (self.x-20, self.y-20))
 
     def __str__(self):
         return f"tile {self.id} at ({self.x}, {self.y})"

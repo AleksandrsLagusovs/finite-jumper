@@ -139,7 +139,8 @@ class Game:
             self.jumper.draw_victory(self.screen, self.timer)
         else:
             self.jumper.draw(self.screen)
-            self.ground.draw()
+            if self.timer < 1000:
+                self.ground.draw()
             for tile in self.tiles:
                 if tile.id == 67:
                     if self.scroll_amount == 2 and music_pos >= 47900:
