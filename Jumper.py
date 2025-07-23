@@ -1,7 +1,18 @@
+"""
+Jumper class for the Finite Jumper game.
+Represents the player character and handles movement and collisions.
+"""
+
 import pygame
 
 class Jumper:
+    """
+    Represents the player character in the game.
+    """
     def __init__(self, screen):
+        """
+        Initializes the jumper's properties and loads images.
+        """
         self.screen = screen
         self.x = 400
         self.y = 500
@@ -27,6 +38,9 @@ class Jumper:
         self.angle = 0
 
     def draw(self, screen):
+        """
+        Draws the jumper on the screen, flipping the image based on direction.
+        """
         if self.crouching:
             image = self.jumping
         elif self.y_velocity > 0:
@@ -47,6 +61,9 @@ class Jumper:
         screen.blit(image, (self.x, self.y))
 
     def draw_victory(self, screen, time):
+        """
+        Draws the jumper in a victory pose, alternating images.
+        """
         # Alternate between "jumping" and "up" images every 20 frames
         if time % 40 < 20:
             image = self.down
@@ -56,38 +73,52 @@ class Jumper:
 
 
     def collide_with_tile(self, tiles):
+        """
+        Checks for collision with any tile and returns the tile if collided.
+        """
         for tile in tiles:
-            if (self.x + self.width > tile.x and self.x < tile.x + tile.width and
-                self.y + self.height >= tile.y and self.y + self.height <= tile.y + tile.height) and self.y_velocity >= 0 and self.y > 0:
+            if ((self.x + self.width > tile.x and self.x < tile.x + tile.width and
+                self.y + self.height >= tile.y and self.y + self.height <= tile.y + tile.height) and
+                self.y_velocity >= 0 and self.y > 0):
                 # Align the jumper's feet with the top of the tile
                 self.y = tile.y - self.height+5
                 return tile
         return None
     
     def collide_with_ground(self, ground):
+        """
+        Checks for collision with the ground.
+        """
         if self.y + self.height >= ground.y:
             return True
         return False
     
     def collide_with_flag(self, flag):
+        """
+        Checks for collision with the flag.
+        """
         if (self.x + self.width > flag.x and self.x < flag.x + flag.width and
             self.y + self.height >= flag.y and self.y < flag.y + flag.height):
             return True
         return False
     
     def rotate(self):
+        """
+        Rotates the jumper's image (used for effects).
+        """
         self.angle += 10
         if self.angle >= 360:
             self.angle = 0
         self.image = pygame.transform.rotate(pygame.image.load("assets/down.png"), self.angle)
 
     def update(self, screen, ground, tiles):
+        """
+        Updates the jumper's position, handles movement, collisions, and drawing.
+        """
 
-        # Check if the jumper is dead
         if self.y > 850:
             self.dead = True
 
-        # Save the previous height
         self.previous_height = self.y
 
         # Apply gravity

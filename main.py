@@ -1,7 +1,15 @@
+"""
+Main entry point for the Finite Jumper game.
+Initializes pygame, sets up the game window, and runs the main game loop.
+"""
+
 import pygame
 from Game import Game
 
 def main():
+    """
+    Initializes the game and runs the main loop, handling events and updating the game state.
+    """
     pygame.init()
     screen = pygame.display.set_mode((1280, 720))
     screen.fill((0, 0, 0))
