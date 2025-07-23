@@ -44,9 +44,10 @@ Check the [Releases](https://github.com/MJKagone/finite-jumper/releases) section
 
 ```
 pip install pygame
+```
+```
 git clone https://github.com/MJKagone/finite-jumper.git
 cd finite-jumper
-pip install -r requirements.txt
 python main.py
 ```
 
