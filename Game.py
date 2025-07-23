@@ -29,7 +29,7 @@ class Game:
         self.timer = 0
         self.music_started = False
         self.falling_sprites = []
-        self.flag = Flag(screen, 495, -13360)
+        self.flag = Flag(screen, 530, -13360)
         self.victory = False
         self.victory_music_playing = False
         
@@ -50,9 +50,9 @@ class Game:
         self.generate_tile(screen, 600, 150, 2, 200)
         self.generate_tile(screen, 800, 0)
         self.generate_tile(screen, 750, -150, 2, 300)
-        self.generate_tile(screen, 600, -300)
+        self.generate_tile(screen, 900, -300)
         self.generate_tile(screen, 600, -450, -2, 400)
-        self.generate_tile(screen, 300, -600, -2, 300)
+        self.generate_tile(screen, 350, -600, -2, 300)
         self.generate_tile(screen, 200, -750, 1, 150)
         self.generate_tile(screen, 400, -900) # 10
         self.generate_tile(screen, 600, -1050)
@@ -64,14 +64,13 @@ class Game:
         self.generate_tile(screen, 700, -1950, 2, 300)
         self.generate_tile(screen, 600, -2100)
         self.generate_tile(screen, 800, -2250)
-        self.generate_tile(screen, 500, -2400, 3, 500) # 20
+        self.generate_tile(screen, 500, -2400, 3, 500)
         self.generate_tile(screen, 400, -2550, -1, 50)
         self.generate_tile(screen, 600, -2700)
         self.generate_tile(screen, 700, -2850, -2, 200)
         self.generate_tile(screen, 500, -3000)
         self.generate_tile(screen, 700, -3150, 2, 1280)
-        # Phase change
-        self.generate_tile(screen, 1155, -3300)
+        self.generate_tile(screen, 1155, -3300) # 26
         self.generate_tile(screen, 25, -3450)
         self.generate_tile(screen, 200, -3600)
         self.generate_tile(screen, 425, -3750)
@@ -141,7 +140,7 @@ class Game:
         self.generate_tile(screen, 25, -12850)
         self.generate_tile(screen, 175, -13000)
         self.generate_tile(screen, 325, -13150)
-        self.generate_tile(screen, 475, -13300)
+        self.generate_tile(screen, 510, -13300)
 
     def draw_tile_trajectories(self):
         """
@@ -161,23 +160,22 @@ class Game:
             self.jumper.draw_victory(self.screen, self.timer)
         else:
             self.jumper.draw(self.screen)
-            if self.timer < 1000:
-                self.ground.draw()
+            self.ground.draw()
             for tile in self.tiles:
                 if tile.id == 67:
                     if self.scroll_amount == 2 and music_pos >= 47900:
-                        tile.draw()
+                        tile.draw(self.timer)
                 elif tile.id == 68:
                     if self.scroll_amount == 2 and music_pos >= 47900+385:
-                        tile.draw()
+                        tile.draw(self.timer)
                 elif tile.id == 69:
                     if self.scroll_amount == 2 and music_pos >= 47900+2*385:
-                        tile.draw()
+                        tile.draw(self.timer)
                 elif tile.id == 70:
                     if self.scroll_amount == 2 and music_pos >= 47900+3*385:
-                        tile.draw()
+                        tile.draw(self.timer)
                 else:
-                    tile.draw()
+                    tile.draw(self.timer)
             self.draw_tile_trajectories()
             self.flag.draw()
             for falling in self.falling_sprites:
@@ -250,7 +248,7 @@ class Game:
             if self.scroll_start:
                 self.timer += 1
             if self.timer == 1680:
-                self.falling_sprites.append(FallingSprite(self.screen, 900, -50))
+                self.falling_sprites.append(FallingSprite(self.screen, 1100, -50))
             if self.timer == 2060:
                 self.falling_sprites.append(FallingSprite(self.screen, 200, -50))
             if self.timer == 3050:
@@ -263,11 +261,11 @@ class Game:
                 self.falling_sprites.append(FallingSprite(self.screen, 200, -50))
             if self.timer == 6600:
                 self.falling_sprites.append(FallingSprite(self.screen, 1080/2, -50))
-            if self.timer == 8200:
-                self.falling_sprites.append(FallingSprite(self.screen, 1080/2, -50))
-            if self.timer == 8250:
-                self.falling_sprites.append(FallingSprite(self.screen, 1080/2+200, -50))
             if self.timer == 8300:
+                self.falling_sprites.append(FallingSprite(self.screen, 1080/2, -50))
+            if self.timer == 8350:
+                self.falling_sprites.append(FallingSprite(self.screen, 1080/2+200, -50))
+            if self.timer == 8400:
                 self.falling_sprites.append(FallingSprite(self.screen, 1080/2-200, -50))
             if pygame.mixer.music.get_pos() <= 50 and self.timer > 1000:
                 self.scroll_amount = 2
