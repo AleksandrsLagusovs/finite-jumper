@@ -14,8 +14,8 @@ Finite Jumper is a platformer built using Pygame. The objective is to ascend thr
 
 ## Controls
 
-- **Left Arrow / A**: Move left
-- **Right Arrow / D**: Move right
+- `Left Arrow` / `A`: Move left
+- `Right Arrow` / `D`: Move right
 - Jumping is automatic
 
 ## Project Structure
@@ -29,7 +29,7 @@ Finite Jumper is a platformer built using Pygame. The objective is to ascend thr
 - `Flag.py` - Victory flag
 - `FallingSprite.py` - Falling sprites
 
-## Requirements
+## Dependencies
 
 - Python 3
 - [Pygame](https://www.pygame.org/) (`pip install pygame`)
@@ -53,7 +53,7 @@ python main.py
 
 ## Credits
 
-The project makes use of open source assets by the following artists:
+The project makes use of open game assets by the following artists:
 
 - **Character sprites:** [pzUH](https://opengameart.org/content/free-dino-sprites)
 
