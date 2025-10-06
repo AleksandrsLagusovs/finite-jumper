@@ -1,7 +1,3 @@
-"""
-Game class for the Finite Jumper game.
-Handles game logic, state, and rendering.
-"""
 
 import pygame
 from Jumper import Jumper
@@ -11,13 +7,9 @@ from FallingSprite import FallingSprite
 from Flag import Flag
 
 class Game:
-    """
-    Main game logic and state management for Finite Jumper.
-    """
+  
     def __init__(self, screen):
-        """
-        Initializes the game state and objects.
-        """
+      
         self.screen = screen
         self.jumper = Jumper(screen)
         self.ground = Ground(screen)
@@ -35,15 +27,11 @@ class Game:
         
     
     def generate_tile(self, screen, x, y, x_velocity=0, max_displacement=0):
-        """
-        Creates and adds a tile to the game.
-        """
+       
         self.tiles.append(Tile(screen, x, y, x_velocity, max_displacement))
 
     def generate_tiles(self, screen):
-        """
-        Generates all tiles for the level.
-        """
+    
         self.generate_tile(screen, 600, 600)
         self.generate_tile(screen, 500, 450)
         self.generate_tile(screen, 700, 300)
@@ -143,17 +131,13 @@ class Game:
         self.generate_tile(screen, 510, -13300)
 
     def draw_tile_trajectories(self):
-        """
-        Draws the trajectories of moving tiles for debugging.
-        """
+       
         for trajectory in self.tile_trajectories:
             if trajectory:
                 pygame.draw.rect(self.screen, (100, 100, 100), trajectory)
 
     def draw(self, screen):
-        """
-        Draws all game elements on the screen.
-        """
+     
         screen.fill((0, 0, 0))
         music_pos = pygame.mixer.music.get_pos()
         if self.victory:
@@ -182,9 +166,7 @@ class Game:
                 falling.draw()
 
     def move_tiles(self):
-        """
-        Moves tiles that have horizontal movement.
-        """
+        
         for tile in self.tiles:
             if tile.max_displacement != 0:
                 if tile.displacement >= tile.max_displacement or tile.x >= 1280 - tile.width or tile.displacement <= -tile.max_displacement or tile.x <= 0:
@@ -193,9 +175,7 @@ class Game:
                 tile.x += tile.x_velocity
 
     def scroll(self):
-        """
-        Scrolls the game world when the player moves up.
-        """
+      
         if self.tile_touched or self.scroll_start:
             if self.scroll_amount != 2:
                 self.scroll_amount = 1
@@ -222,9 +202,7 @@ class Game:
                 pygame.mixer.music.queue("assets/leap.wav")
 
     def update(self):
-        """
-        Updates the game state, handles collisions, and checks for victory or game over.
-        """
+    
         if self.victory:
             self.flag.captured = True
             self.timer += 1
@@ -274,9 +252,7 @@ class Game:
                 print("Victory!")
 
     def game_over(self):
-        """
-        Handles game over state and exits the game.
-        """
+     
         print("Game over!")
         pygame.quit()
         exit()
